@@ -2,6 +2,9 @@ name: release
 on:
   workflow_dispatch:
 
+  release:
+    types: [published]
+
 permissions:
   contents: read
   packages: write
@@ -31,7 +34,9 @@ jobs:
 
       - name: image build and push
         run: |
-          IMAGE_VER=v$(date +"%Y%m%d%H%M")
+          IMAGE_VER=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
+          [[ -n $IMAGE_VER ]] || IMAGE_VER=v$(date +"%Y%m%d%H%M")
+
           echo "build ${IMAGE_NAME}:${IMAGE_VER}"
 
           TAG=ghcr.io/${GITHUB_REPOSITORY}/${IMAGE_NAME}:${IMAGE_VER}
