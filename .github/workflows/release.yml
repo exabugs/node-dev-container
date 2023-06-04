@@ -1,4 +1,4 @@
-name: release 
+name: release
 on:
   workflow_dispatch:
 
@@ -7,14 +7,13 @@ permissions:
   packages: write
 
 env:
-  TZ: 'Asia/Tokyo'
+  TZ: "Asia/Tokyo"
   IMAGE_NAME: node-dev-container
 
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout (GitHub)
         uses: actions/checkout@v3
 

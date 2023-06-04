@@ -23,7 +23,14 @@
   // "customizations": {},
   "customizations": {
     "vscode": {
-      "extensions": ["esbenp.prettier-vscode", "dbaeumer.vscode-eslint"]
+      "extensions": ["esbenp.prettier-vscode", "dbaeumer.vscode-eslint"],
+      "settings": {
+        "editor.formatOnSave": true,
+        "files.insertFinalNewline": true,
+        "[yaml]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        }
+      }
     }
   }
 

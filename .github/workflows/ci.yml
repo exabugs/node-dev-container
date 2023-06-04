@@ -1,4 +1,4 @@
-name: build 
+name: build
 on: # rebuild any PRs and main branch changes
   workflow_dispatch:
   #pull_request:
@@ -10,7 +10,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout (GitHub)
         uses: actions/checkout@v3
 
