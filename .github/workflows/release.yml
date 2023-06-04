@@ -1,0 +1,41 @@
+name: 'release' 
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  package: write
+
+env:
+  TZ: 'Asia/Tokyo'
+  IMAGE_NAME: node-dev-container
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout (GitHub)
+        uses: actions/checkout@v3
+
+      - name: Build and run dev container task
+        uses: devcontainers/ci@v0.3
+        with:
+          runCmd: yarn build
+
+      - name: login
+        use: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ GITHUB_REPOSITORY_OWNER }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: image build and push
+        run: |
+          IMAGE_VER=v$(date +"%Y%m%d%H%M")
+          echo "build ${IMAGE_NAME}:${IMAGE_VER}"
+
+          TAG=ghcr.io/${IMAGE_NAME}:${IMAGE_VER}
+
+          docker build . -t $TAG
+          docker push $TAG
