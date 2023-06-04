@@ -17,8 +17,8 @@
   "forwardPorts": [3000],
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "yarn install",
-  "postCreateCommand": "yarn install && tsc --watch",
+  "postCreateCommand": "yarn install",
+  //"postCreateCommand": "yarn install && tsc --watch",
 
   // Configure tool-specific properties.
   // "customizations": {},
