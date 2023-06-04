@@ -7,7 +7,7 @@ permissions:
   packages: write
 
 env:
-  TZ: "Asia/Tokyo"
+  TZ: Asia/Tokyo
   IMAGE_NAME: node-dev-container
 
 jobs:
