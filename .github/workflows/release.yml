@@ -35,7 +35,7 @@ jobs:
           IMAGE_VER=v$(date +"%Y%m%d%H%M")
           echo "build ${IMAGE_NAME}:${IMAGE_VER}"
 
-          TAG=ghcr.io/${GITHUB_ACTION_REPOSITORY}/${IMAGE_NAME}:${IMAGE_VER}
+          TAG=ghcr.io/${GITHUB_REPOSITORY}/${IMAGE_NAME}:${IMAGE_VER}
 
           docker build . -t $TAG
           docker push $TAG
