@@ -10,17 +10,17 @@
   "init": true,
 
   // Features to add to the dev container. More info: https://containers.dev/features.
-  // "features": {},
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/jest:2": {}
+  },
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  // "forwardPorts": [],
   "forwardPorts": [3000],
 
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": "yarn install",
 
   // Configure tool-specific properties.
-  // "customizations": {},
   "customizations": {
     "vscode": {
       "extensions": ["esbenp.prettier-vscode", "dbaeumer.vscode-eslint"],
