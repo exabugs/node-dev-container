@@ -27,6 +27,10 @@
       "settings": {
         "editor.formatOnSave": true,
         "files.insertFinalNewline": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": true
+        },
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
         "[yaml]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode"
         }
