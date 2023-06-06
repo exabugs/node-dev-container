@@ -7,6 +7,12 @@ const log = (x: string) => {
 
 const app = express();
 app.get("/todos", (_req, res) => {
+  var x;
+  if ((x = 0)) {
+    // 比較演算子ではなく代入演算子になっている
+    var b = 1;
+  }
+
   axios({
     url: "https://jsonplaceholder.typicode.com/todos",
     params: { _limit: 3 },
