@@ -121,12 +121,12 @@ export default {
   // restoreMocks: false,
 
   // The root directory that Jest should scan for tests and modules within
-  //rootDir: "dist",
+  // rootDir: "tests",
 
   // A list of paths to directories that Jest should use to search for files in
-  // roots: [
-  //   "<rootDir>"
-  // ],
+  roots: [
+    "tests"
+  ],
 
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",
@@ -173,7 +173,11 @@ export default {
   // testRunner: "jest-circus/runner",
 
   // A map from regular expressions to paths to transformers
-  // transform: undefined,
+  transform: {
+    '^.+\\.tsx?$': ['ts-jest', {
+      useESM: true,
+    }]
+  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
@@ -192,34 +196,4 @@ export default {
 
   // Whether to use watchman for file crawling
   // watchman: true,
-
-
-  //roots: ["src", "tests"],
-  roots: ["tests"],
-  transform: {
-    '^.+\\.tsx?$': ['ts-jest', {
-      useESM: true,
-      //babel: true,
-      //tsConfig: 'tsconfig.json',
-    }]
-
-  },
-
-  //testEnvironment: "jest-environment-node",
-  //testEnvironment: "node",
-  // https://kulshekhar.github.io/ts-jest/docs/next/guides/esm-support/
-  //preset: "ts-jest/presets/default-esm",
-
-  // これがないと、debug 時の先頭で js ファイルで停止してしまう
-  //extensionsToTreatAsEsm: [".ts"],
-
-  //globals: {
-  //  "ts-jest": {
-  //    useESM: true,
-  //  },
-  //},
-  //moduleNameMapper: {
-  //  "^(\\.{1,2}/.*)\\.js$": "$1",
-  //},
-
 };
