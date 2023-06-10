@@ -150,7 +150,7 @@ export default {
   // testEnvironmentOptions: {},
 
   // Adds a location field to test results
-  testLocationInResults: true,
+  // testLocationInResults: true,
 
   // The glob patterns Jest uses to detect test files
   testMatch: [
