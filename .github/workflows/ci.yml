@@ -11,10 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      # write permission is required to create a github release
       contents: write
-      # write permission is required for autolabeler
-      # otherwise, read permission is required at least
       pull-requests: write
     steps:
       - name: Checkout (GitHub)
@@ -23,14 +20,14 @@ jobs:
       - name: Build and run dev container task
         uses: devcontainers/ci@v0.3
         with:
-          runCmd: npm run build
+          runCmd: npm run build && npm run test
 
       - uses: ArtiomTr/jest-coverage-report-action@v2
         id: coverage
         with:
-          #skip-step: all
-          #coverage-file: ./coverage/coverage-final.json
-          #base-coverage-file: ./coverage/coverage-final.json
+          skip-step: all
+          coverage-file: ./coverage/coverage-final.json
+          base-coverage-file: ./coverage/coverage-final.json
           output: report-markdown
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
