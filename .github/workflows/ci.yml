@@ -24,6 +24,7 @@ jobs:
       #  uses: devcontainers/ci@v0.3
       #  with:
       #    runCmd: yarn build && yarn test
+
       - uses: ArtiomTr/jest-coverage-report-action@v2
         id: coverage
         with:
@@ -34,5 +35,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - run: |
-          echo '# Coverage :rocket:'                  >> $GITHUB_STEP_SUMMARY
           echo '${{ steps.coverage.outputs.report }}' >> $GITHUB_STEP_SUMMARY
