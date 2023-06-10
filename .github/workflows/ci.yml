@@ -26,6 +26,8 @@ jobs:
         id: coverage
         with:
           skip-step: all
+          coverage-file: report.json
+          base-coverage-file: report.json
           output: comment, report-markdown
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
