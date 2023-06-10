@@ -23,4 +23,4 @@ jobs:
       - run: |
           echo '# Coverage :rocket:' >> $GITHUB_STEP_SUMMARY
           # sed で先頭行と末尾行の不要な罫線を消す
-          cat coverage/report.txt | sed '1d' | sed '$d' >> $GITHUB_STEP_SUMMARY
+          cat coverage/report.txt | sed -e '1d' -e '$d' >> $GITHUB_STEP_SUMMARY
