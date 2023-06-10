@@ -27,12 +27,10 @@ jobs:
       - uses: ArtiomTr/jest-coverage-report-action@v2
         id: coverage
         with:
-          #  skip-step: all
-          #  coverage-file: ./coverage/coverage-final.json
-          #  base-coverage-file: ./coverage/coverage-final.json
-          #  output: report-markdown
-          #  github-token: ${{ secrets.GITHUB_TOKEN }}
-          #  test-script: npm testf
+          skip-step: all
+          coverage-file: ./coverage/coverage-final.json
+          base-coverage-file: ./coverage/coverage-final.json
+          output: report-markdown
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - run: |
