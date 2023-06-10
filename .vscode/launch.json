@@ -21,7 +21,7 @@
       "type": "node",
       "request": "launch",
       "runtimeArgs": [
-        "--experimental-vm-modules",
+        //"--experimental-vm-modules",
         "/usr/local/share/npm-global/lib/node_modules/jest/bin/jest.js",
         "--runInBand"
       ],
