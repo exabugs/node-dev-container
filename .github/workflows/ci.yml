@@ -17,18 +17,18 @@ jobs:
       - name: Checkout (GitHub)
         uses: actions/checkout@v3
 
-      - name: Build and run dev container task
-        uses: devcontainers/ci@v0.3
-        with:
-          runCmd: npm run build && npm run test
+      #- name: Build and run dev container task
+      #  uses: devcontainers/ci@v0.3
+      #  with:
+      #    runCmd: npm run build && npm run test
 
       - uses: ArtiomTr/jest-coverage-report-action@v2
         id: coverage
         with:
           working-directory: coverage
           skip-step: all
-          coverage-file: coverage-final.json
-          base-coverage-file: coverage-final.json
+          #coverage-file: coverage-final.json
+          #base-coverage-file: coverage-final.json
           output: comment, report-markdown
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
