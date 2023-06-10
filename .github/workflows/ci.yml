@@ -20,6 +20,9 @@ jobs:
       - name: Build and run dev container task
         uses: devcontainers/ci@v0.3
         with:
+          imageName: ghcr.io/exabugs/node-dev-container
+          cacheFrom: ghcr.io/exabugs/node-dev-container
+          push: always
           runCmd: npm run build && npm run test -- --json --outputFile=\"report.json\"
 
       - uses: ArtiomTr/jest-coverage-report-action@v2
