@@ -18,15 +18,15 @@ jobs:
       #  uses: devcontainers/ci@v0.3
       #  with:
       #    runCmd: yarn build && yarn test
-
       - uses: ArtiomTr/jest-coverage-report-action@v2
         id: coverage
-        with:
-          skip-step: all
-          coverage-file: ./coverage/coverage-final.json
-          base-coverage-file: ./coverage/coverage-final.json
-          output: report-markdown
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+        #with:
+        #  skip-step: all
+        #  coverage-file: ./coverage/coverage-final.json
+        #  base-coverage-file: ./coverage/coverage-final.json
+        #  output: report-markdown
+        #  github-token: ${{ secrets.GITHUB_TOKEN }}
+        #  test-script: npm test
 
       - run: |
           echo '# Coverage :rocket:'                  >> $GITHUB_STEP_SUMMARY
