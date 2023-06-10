@@ -26,6 +26,7 @@ jobs:
           coverage-file: ./coverage/coverage-final.json
           base-coverage-file: ./coverage/coverage-final.json
           output: report-markdown
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - run: |
           echo '# Coverage :rocket:'                  >> $GITHUB_STEP_SUMMARY
