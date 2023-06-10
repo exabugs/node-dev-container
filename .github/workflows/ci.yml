@@ -17,11 +17,14 @@ jobs:
       - name: Build and run dev container task
         uses: devcontainers/ci@v0.3
         with:
-          # Change this to be your CI task/script
           runCmd: yarn build && yarn test
 
+      - uses: ArtiomTr/jest-coverage-report-action@v2
+        id: coverage
+        with:
+          coverage-file: coverage/coverage-final.json
+          output: report-markdown
+
       - run: |
-          echo '# Coverage :rocket:' >> $GITHUB_STEP_SUMMARY
-          # sed で先頭行と末尾行の不要な罫線を消す
-          ./node_modules/.bin/istanbul report --include coverage/coverage-final.json text \
-            | head -n -3 | tail -n +2 >> $GITHUB_STEP_SUMMARY
+          echo '# Coverage :rocket:'                  >> $GITHUB_STEP_SUMMARY
+          echo '${{ steps.coverage.outputs.report }}' >> $GITHUB_STEP_SUMMARY
