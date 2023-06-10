@@ -26,14 +26,14 @@
 		"unmatched": 0,
 		"updated": 0
 	},
-	"startTime": 1686379781142,
+	"startTime": 1686379951625,
 	"success": true,
 	"testResults": [
 		{
 			"assertionResults": [
 				{
 					"ancestorTitles": [],
-					"duration": 2,
+					"duration": 3,
 					"failureDetails": [],
 					"failureMessages": [],
 					"fullName": "sum",
@@ -48,10 +48,10 @@
 					"title": "sum"
 				}
 			],
-			"endTime": 1686379784910,
+			"endTime": 1686379955407,
 			"message": "",
 			"name": "/workspaces/node-dev-container/tests/calc.spec.ts",
-			"startTime": 1686379781462,
+			"startTime": 1686379951917,
 			"status": "passed",
 			"summary": ""
 		}

@@ -8,7 +8,8 @@
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",
     "test_watch": "NODE_OPTIONS=--experimental-vm-modules jest --watchAll",
     "build": "tsc",
-    "watch": "tsc --watch"
+    "watch": "tsc --watch",
+    "test:coverage": "npm run test -- --coverage --silent --testLocationInResults --ci --json --outputFile=\"report.json\""
   },
   "author": "exabugs",
   "license": "ISC",
