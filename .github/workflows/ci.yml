@@ -25,7 +25,7 @@ jobs:
       - uses: ArtiomTr/jest-coverage-report-action@v2
         id: coverage
         with:
-          working-directory: coverage
+          #working-directory: coverage
           skip-step: all
           #coverage-file: coverage-final.json
           #base-coverage-file: coverage-final.json
