@@ -29,12 +29,43 @@
         "oderwat.indent-rainbow",
         "github.vscode-github-actions"
       ],
+      // https://code.visualstudio.com/docs/getstarted/settings
       "settings": {
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "files.insertFinalNewline": true,
         "editor.codeActionsOnSave": {
           "source.fixAll.eslint": true
+        },
+        "launch": {
+          "configurations": [
+            {
+              "name": "Launch Program",
+              "type": "node",
+              "request": "launch",
+              "skipFiles": ["<node_internals>/**"],
+              //"skipFiles": [
+              //  "${workspaceFolder}/<node_internals>/**",
+              //  "${workspaceFolder}/node_modules/**"
+              //],
+              "console": "integratedTerminal",
+              "program": "${file}"
+            },
+            {
+              "name": "Jest",
+              "type": "node",
+              "request": "launch",
+              "runtimeArgs": [
+                //"--experimental-vm-modules",
+                "/usr/local/share/npm-global/lib/node_modules/jest/bin/jest.js",
+                "--runInBand"
+              ],
+              "args": ["${file}"],
+              "skipFiles": ["<node_internals>/**"],
+              "console": "integratedTerminal"
+              //"internalConsoleOptions": "neverOpen"
+            }
+          ]
         }
       }
     }

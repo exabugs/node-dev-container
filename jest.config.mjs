@@ -100,7 +100,7 @@ export default {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-  //preset: "ts-jest/presets/js-with-ts-esm",
+  // preset: "ts-jest/presets/js-with-ts-esm",
 
   // Run tests from one or more projects
   // projects: undefined,
