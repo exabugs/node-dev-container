@@ -43,27 +43,21 @@
               "name": "Launch Program",
               "type": "node",
               "request": "launch",
+              "program": "${file}",
               "skipFiles": ["<node_internals>/**"],
-              //"skipFiles": [
-              //  "${workspaceFolder}/<node_internals>/**",
-              //  "${workspaceFolder}/node_modules/**"
-              //],
-              "console": "integratedTerminal",
-              "program": "${file}"
+              "console": "integratedTerminal"
             },
             {
               "name": "Jest",
               "type": "node",
               "request": "launch",
               "runtimeArgs": [
-                //"--experimental-vm-modules",
-                "/usr/local/share/npm-global/lib/node_modules/jest/bin/jest.js",
-                "--runInBand"
+                "/usr/local/share/npm-global/lib/node_modules/jest/bin/jest.js"
               ],
-              "args": ["${file}"],
+              "program": "${file}",
+              "args": ["--runInBand"],
               "skipFiles": ["<node_internals>/**"],
               "console": "integratedTerminal"
-              //"internalConsoleOptions": "neverOpen"
             }
           ]
         }
