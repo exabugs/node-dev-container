@@ -6,10 +6,9 @@
   "repository": "github:exabugs/node-dev-container",
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",
-    "test_watch": "NODE_OPTIONS=--experimental-vm-modules jest --watchAll",
+    "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --watchAll",
     "build": "tsc",
-    "watch": "tsc --watch",
-    "test:coverage": "npm run test -- --coverage --silent --testLocationInResults --ci --json --outputFile=\"report.json\""
+    "build:watch": "tsc --watch"
   },
   "author": "exabugs",
   "license": "ISC",
