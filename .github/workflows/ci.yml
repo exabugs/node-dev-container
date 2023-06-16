@@ -29,8 +29,8 @@ jobs:
       - name: Build and run dev container task
         uses: devcontainers/ci@v0.3
         with:
-          imageName: ghcr.io/${{ github.repository }}/node-dev-container
-          cacheFrom: ghcr.io/${{ github.repository }}/node-dev-container
+          imageName: ghcr.io/${{ github.repository }}/workflow_devcontainer
+          cacheFrom: ghcr.io/${{ github.repository }}/workflow_devcontainer
           push: always
           runCmd: npm run build && npm run test -- --json --outputFile=\"report.json\"
 
