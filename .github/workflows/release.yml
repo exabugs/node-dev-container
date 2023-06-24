@@ -32,7 +32,19 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: image build and push
+      #- name: image build and push
+      #  run: |
+      #    IMAGE_VER=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
+      #    [[ -n $IMAGE_VER ]] || IMAGE_VER=v$(date +"%Y%m%d%H%M")
+
+      #    echo "build ${IMAGE_NAME}:${IMAGE_VER}"
+
+      #    TAG=ghcr.io/${GITHUB_REPOSITORY}/${IMAGE_NAME}:${IMAGE_VER}
+
+      #    docker build . -t $TAG
+      #    docker push $TAG
+
+      - name: Check Tag
         run: |
           IMAGE_VER=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
           [[ -n $IMAGE_VER ]] || IMAGE_VER=v$(date +"%Y%m%d%H%M")
@@ -41,5 +53,15 @@ jobs:
 
           TAG=ghcr.io/${GITHUB_REPOSITORY}/${IMAGE_NAME}:${IMAGE_VER}
 
-          docker build . -t $TAG
-          docker push $TAG
+          echo "TAG=$TAG" >> $GITHUB_ENV
+
+      # イメージをビルドして、ECR にプッシュする
+      # https://cockscomb.hatenablog.com/entry/2022/02/16/092538
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          #context: .
+          push: true
+          tags: ${{ env.TAG }}
+          cache-from: type=gha,scope=${{ github.workflow }}
+          cache-to: type=gha,scope=${{ github.workflow }},mode=max
