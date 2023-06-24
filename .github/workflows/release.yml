@@ -26,7 +26,7 @@ jobs:
       - name: Build and run dev container task
         uses: devcontainers/ci@v0.3
         with:
-          runCmd: yarn build
+          runCmd: npm install && npm run build
 
       - name: login
         uses: docker/login-action@v2
