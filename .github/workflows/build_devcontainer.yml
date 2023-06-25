@@ -1,4 +1,4 @@
-name: build
+name: build_devcontainer
 
 on: # rebuild any PRs and main branch changes
   workflow_dispatch:
@@ -13,7 +13,7 @@ permissions:
   packages: write
 
 jobs:
-  build:
+  build_devcontainer:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout (GitHub)
@@ -31,22 +31,5 @@ jobs:
         with:
           imageName: ghcr.io/${{ github.repository }}/workflow_devcontainer
           cacheFrom: ghcr.io/${{ github.repository }}/workflow_devcontainer
-          push: never
-          runCmd: npm run build && npm run test -- --json --outputFile=\"report.json\"
-
-      - uses: ArtiomTr/jest-coverage-report-action@v2
-        id: coverage
-        with:
-          skip-step: all
-          coverage-file: report.json
-          base-coverage-file: report.json
-          output: comment, report-markdown
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - run: |
-          echo '${{ steps.coverage.outputs.report }}' >> $GITHUB_STEP_SUMMARY
-
-# build-push-action
-#   https://github.com/docker/build-push-action
-# Test before push
-#   https://docs.docker.com/build/ci/github-actions/test-before-push/
+          push: always
+          #runCmd: npm run build && npm run test -- --json --outputFile=\"report.json\"
