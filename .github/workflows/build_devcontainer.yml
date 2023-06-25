@@ -32,4 +32,3 @@ jobs:
           imageName: ghcr.io/${{ github.repository }}/workflow_devcontainer
           cacheFrom: ghcr.io/${{ github.repository }}/workflow_devcontainer
           push: always
-          #runCmd: npm run build && npm run test -- --json --outputFile=\"report.json\"
