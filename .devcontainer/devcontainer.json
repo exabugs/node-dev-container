@@ -4,7 +4,7 @@
 {
   "name": "Node.js & TypeScript",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:0-20",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20",
 
   // Cross-orchestrator way to indicate whether the tini init process should be used to help deal with zombie processes.
   "init": true,
